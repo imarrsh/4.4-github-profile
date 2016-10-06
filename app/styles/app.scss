@@ -1,10 +1,13 @@
 
 // Bootstrap Variables
-$icon-font-path: '../../node_modules/bootstrap-sass/assets/fonts/bootstrap/';
+@import 'variables';
+@import 'mixins';
+
 
 // Import Bootstrap
 @import '../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
-
+// Import Octicons
+@import '../../node_modules/octicons/build/font/octicons';
 
 *,
 *::before,
@@ -14,4 +17,31 @@ $icon-font-path: '../../node_modules/bootstrap-sass/assets/fonts/bootstrap/';
 
 img {
   max-width: 100%;
+}
+
+
+// units
+.search {
+  float: left;
+  input{
+    border: 1px solid $hubBorder;
+  }
+}
+
+.header {
+  padding: 10px 0;
+  background: $hubGray;
+  border-bottom: 1px solid $hubBorder;
+  a {
+
+  }
+  ul{
+    float: left;
+    margin: 0;
+    padding: 0;
+  }
+  li{
+    list-style: none;
+    display: inline-block;
+  }
 }
