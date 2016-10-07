@@ -61,3 +61,18 @@ img {
 .main-content {
   padding: 24px 0;
 }
+
+.user-profile {
+  h4 {
+    font-weight: normal;
+  }
+  button {
+    width: 100%;
+  }
+  ul {
+    padding: 0;
+    li {
+      list-style: none;
+    }
+  }
+}

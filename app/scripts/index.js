@@ -4,6 +4,8 @@ var Handlebars = require('handlebars');
 var apiKey = require('./githubapikey');
 var octicons = require('octicons');
 
+// var rootURL = 'https://api.github.com/';
+
 // set header for api request
 if(apiKey !== undefined){
 	$.ajaxSetup({
@@ -24,24 +26,49 @@ function displayAvatar(avatar){
 }
 
 function displayProfileInfo(data){
-  
+  console.log(data);
+  var profileSource = $('#user-info-template').html(),
+      profileTemplate = Handlebars.compile(profileSource),
+      profileHTML = $(profileTemplate(data));
+
+  $('#user-profile').append(profileHTML);
+}
+
+function displayRepos(data){
+  // console.log(repoData);
+  var reposURL = data.repos_url,
+      repoSource = $('#user-repo-template').html(),
+      repoTemplate = Handlebars.compile(repoSource),
+      repoHTML;
+
+  $.ajax(reposURL).then(function(repos){
+    // loop through all repos, print each one to a template
+    repos.forEach(function(repo){
+      repoHTML = $(repoTemplate(repo));
+      $('#user-repos').append(repoHTML);
+    });
+
+  });
+
 }
 
 // recive data and do stuff, call other functions
-function init(data){
-  // grab avatar
-  var avatarData = {
-                     img: data.avatar_url,
-                     name: data.name
-                   };
+function init(data, repos){
 
+  // grab avatar and name to store in object
+  var avatarData = { img: data.avatar_url,
+                     name: data.name };
   displayAvatar(avatarData);
-  // console.log(avatarURL);
+
   displayProfileInfo(data);
+
+  // console.log(repos);
+  displayRepos(data);
 }
 
 // ajax request for profile data
-$.ajax('https://api.github.com/users/imarrsh').then(function(data){
-  // call init function
-  init(data);
-});
+$.ajax('https://api.github.com/users/imarrsh')
+  .then(function(data, repos){
+    // call init function
+    init(data, repos);
+  });

@@ -48,22 +48,22 @@
         <!-- left col -->
         <div class="col-md-3">
 
-          <div class="user-profile">
+          <div id="user-profile" class="user-profile">
             <div class="avatar-large">
               <img src="" alt="" class="avatar">
             </div>
             <!-- template magic -->
             <script id="user-info-template" type="text/x-handlebars-template">
-              <h2>Marshall Thompson</h2>
-              <h4>imarrsh</h4>
-              <p>Former IT Manager turned coder. Weight lifter. Adventurer. Foodie.</p>
+              <h2>{{name}}</h2>
+              <h4>{{login}}</h4>
+              <p>{{bio}}</p>
               <button>Edit Profile</button>
               <hr>
               <ul class="networking-info">
-                <li class="location">Augusta, GA</li>
-                <li class="email"><a href="mailto:marshallThomp@gmail.com">marshallThomp@gmail.com</a></li>
-                <li class="website"><a href="">url</a></li>
-                <li class="joined-date">Joined Date</li>
+                <li class="location">{{location}}</li>
+                <li class="email"><a href="{{email}}">{{email}}</a></li>
+                <li class="website"><a href="">{{blog}}</a></li>
+                <li class="joined-date">{{created_at}}</li>
               </ul>
               <hr>
               <h3>Organizations</h3>
@@ -77,6 +77,23 @@
 
         <!-- right col -->
         <div class="col-md-9">
+          <section id="user-repos">
+            <!-- template for repos -->
+            <script id="user-repo-template" type="text/x-handlebars-template">
+              <div class="row">
+                <div class="col-md-6">
+                  <h5>
+                    <a href="{{url}}">{{name}}</a>
+                  </h5>
+                  <span>{{description}}</span>
+                </div>
+                <div class="col-md-3">graph</div>
+                <div class="col-md-2">{{language}}</div>
+                <div class="col-md-1"><span class="octicon octicon-star"></span>{{stargazers_count}}</div>
+              </div>
+            </script>
+            <!-- /template for repos -->
+          </section>
 
         </div>
 
