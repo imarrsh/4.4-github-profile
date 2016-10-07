@@ -81,35 +81,73 @@
 
             <!-- template for repos -->
             <script id="user-repo-template" type="text/x-handlebars-template">
-              <div class="row row-content">
 
-                <div class="col-md-6">
-                  <h4>
-                    <a href="{{url}}">{{name}}</a>
-                  </h4>
-                  <span>{{description}}</span>
-                </div>
-                <div class="col-md-3">
-                  <span>–</span>
-                </div>
-                <div class="col-md-2">
-                  <span class="{{language}}">{{language}}</span>
-                </div>
-                <div class="col-md-1">
-                  <span class="octicon octicon-star"></span>{{stargazers_count}}
+              <div class="row">
+
+                <div class="row-content">
+                  <div class="col-md-6">
+                    <h4>
+                      <a href="{{url}}">{{name}}</a>
+                    </h4>
+                    <span>{{description}}</span>
+                  </div>
+                  <div class="col-md-3">
+                    <span>–</span>
+                  </div>
+                  <div class="col-md-2">
+                    <span class="language {{language}}">{{language}}</span>
+                  </div>
+                  <div class="col-md-1">
+                    <span class="octicon octicon-star"></span>{{stargazers_count}}
+                  </div>
                 </div>
               </div>
 
             </script>
             <!-- /template for repos -->
+
           </section>
 
         </div>
 
+      </div> <!-- /row-->
+    </div> <!-- /container -->
+
+  </section> <!-- /main-content -->
+
+  <footer>
+
+    <div class="container">
+      <div class="row">
+
+        <nav class="help">
+          <ul>
+            <li>&copy; <span class="copyright">2016</span> GitHub, Inc.</li>
+            <li>Terms</li>
+            <li>Privacy</li>
+            <li>Security</li>
+            <li>Status</li>
+            <li>Help</li>
+          </ul>
+        </nav>
+
+        <span class="octicon octicon-mark-github"></span>
+
+        <nav class="cool-stuff">
+          <ul>
+            <li>Contact GitHub</li>
+            <li>API</li>
+            <li>Training</li>
+            <li>Shop</li>
+            <li>Blog</li>
+            <li>About</li>
+          </ul>
+        </nav>
+
       </div>
     </div>
 
-  </section>
+  </footer>
 
 
   </div>

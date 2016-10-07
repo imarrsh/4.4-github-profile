@@ -80,30 +80,37 @@ img {
 .user-repos {
   .row-content {
     padding: 30px 0;
-    border-bottom: 1px solid lighten($hubBorder, 50%);
+    border-bottom: 1px solid lighten($hubBorder, 35%);
+    &:after {
+      content: '';
+      display: block;
+      clear: both;
+    }
   }
-  .language:before{
-    content: '';
-    margin-right: 7px;
-    display: inline-block;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-  }
-  .JavaScript:before {
-    @extend .language:before;
-    background: $hubLangJS;
-  }
-  .CSS:before {
-    @extend .JavaScript:before ;
-    background: $hubLangCSS;
-  }
-  .HTML:before {
-    @extend .JavaScript:before ;
-    background: $hubLangHTML;
-  }
-  .Shell:before {
-    @extend .JavaScript:before ;
-    background: $hubLangShell;
+  .language {
+    &::before {
+      content: '';
+      margin-right: 7px;
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+    &.JavaScript::before{
+      @extend .language;
+      background: $hubLangJS;
+    }
+    &.CSS::before {
+      @extend .language ;
+      background: $hubLangCSS;
+    }
+    &.HTML::before {
+      @extend .language ;
+      background: $hubLangHTML;
+    }
+    &.Shell::before {
+      @extend .language;
+      background: $hubLangShell;
+    }
   }
 }

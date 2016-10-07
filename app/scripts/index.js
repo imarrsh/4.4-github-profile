@@ -29,9 +29,16 @@ function displayProfileInfo(data){
   console.log(data);
   var profileSource = $('#user-info-template').html(),
       profileTemplate = Handlebars.compile(profileSource),
-      profileHTML = $(profileTemplate(data));
+      profileHTML = $(profileTemplate(data)),
+		  orgsURL = data.organizations_url;
 
   $('#user-profile').append(profileHTML);
+
+	$.ajax(orgsURL).then(function(orgs){
+		orgs.forEach(function(org){
+			
+		});
+	});
 }
 
 function displayRepos(data){
@@ -53,7 +60,7 @@ function displayRepos(data){
 }
 
 // recive data and do stuff, call other functions
-function init(data, repos){
+function init(data){
 
   // grab avatar and name to store in object
   var avatarData = { img: data.avatar_url,
@@ -62,13 +69,12 @@ function init(data, repos){
 
   displayProfileInfo(data);
 
-  // console.log(repos);
   displayRepos(data);
 }
 
 // ajax request for profile data
 $.ajax('https://api.github.com/users/imarrsh')
-  .then(function(data, repos){
+  .then(function(data){
     // call init function
-    init(data, repos);
+    init(data);
   });
