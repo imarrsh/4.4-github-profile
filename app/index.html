@@ -16,21 +16,23 @@
       <div class="row">
         <div class="col-xs-12">
 
-          <a href=""><span class="octicon octicon-mark-github"></span></a>
+          <span class="logo">
+            <a href="#" class="octicon octicon-mark-github"></a>
+          </span>
           <div class="search">
             <form action="#">
               <input type="text" name="q" id="search-text" placeholder="Search GitHub">
             </form>
           </div>
-          <ul>
-            <li>Pull requests</li>
-            <li>Issues</li>
-            <li>Gist</li>
+          <ul class="actions-nav">
+            <li><a href="#">Pull requests</a></li>
+            <li><a href="#">Issues</a></li>
+            <li><a href="#">Gist</a></li>
           </ul>
-          <ul>
-            <li>bell</li>
-            <li>plus</li>
-            <li>icon</li>
+          <ul class="account-nav">
+            <li><a href="#"><span class="octicon octicon-bell"></span></a></li>
+            <li><a href="#"><span class="octicon octicon-plus"></span></a></li>
+            <li><a href="#"><img src="" alt="" class="avatar"></a></li>
           </ul>
 
         </div>
@@ -45,6 +47,31 @@
       <div class="row">
         <!-- left col -->
         <div class="col-md-3">
+
+          <div class="user-profile">
+            <div class="avatar-large">
+              <img src="" alt="" class="avatar">
+            </div>
+            <!-- template magic -->
+            <script id="user-info-template" type="text/x-handlebars-template">
+              <h2>Marshall Thompson</h2>
+              <h4>imarrsh</h4>
+              <p>Former IT Manager turned coder. Weight lifter. Adventurer. Foodie.</p>
+              <button>Edit Profile</button>
+              <hr>
+              <ul class="networking-info">
+                <li class="location">Augusta, GA</li>
+                <li class="email"><a href="mailto:marshallThomp@gmail.com">marshallThomp@gmail.com</a></li>
+                <li class="website"><a href="">url</a></li>
+                <li class="joined-date">Joined Date</li>
+              </ul>
+              <hr>
+              <h3>Organizations</h3>
+              <a href="#"><img src="" alt=""></a>
+            </script>
+            <!-- /template magic -->
+          </div>
+
 
         </div>
 

@@ -1,47 +1,12 @@
 
-// Bootstrap Variables
+// Import Variables, Mixins
 @import 'variables';
 @import 'mixins';
-
 
 // Import Bootstrap
 @import '../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
 // Import Octicons
 @import '../../node_modules/octicons/build/font/octicons';
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-img {
-  max-width: 100%;
-}
-
-
-// units
-.search {
-  float: left;
-  input{
-    border: 1px solid $hubBorder;
-  }
-}
-
-.header {
-  padding: 10px 0;
-  background: $hubGray;
-  border-bottom: 1px solid $hubBorder;
-  a {
-
-  }
-  ul{
-    float: left;
-    margin: 0;
-    padding: 0;
-  }
-  li{
-    list-style: none;
-    display: inline-block;
-  }
-}
+// Import project styles
+@import 'styles';

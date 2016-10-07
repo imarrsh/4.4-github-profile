@@ -1,0 +1,63 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+}
+
+// units
+.search {
+  float: left;
+  input{
+    border: 1px solid $hubBorder;
+  }
+}
+
+
+.header {
+  padding: 10px 0;
+  background: $hubGray;
+  border-bottom: 1px solid $hubBorder;
+  .logo {
+    display: inline-block;
+    float: left;
+    a {
+      font-size: 27px;
+      color: $hubTextDark;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+  a {
+    display: block;
+  }
+  ul{
+    float: left;
+    margin: 0;
+    padding: 0;
+  }
+  li{
+    list-style: none;
+    display: inline-block;
+  }
+  form {
+    input {
+      height: 27px;
+      padding: 0 10px;
+    }
+  }
+  .account-nav {
+    float: right;
+    .avatar {
+      width: 22px;
+    }
+  }
+}
+
+.main-content {
+  padding: 24px 0;
+}
