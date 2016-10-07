@@ -97,20 +97,44 @@ img {
       border-radius: 50%;
     }
     &.JavaScript::before{
-      @extend .language;
       background: $hubLangJS;
     }
     &.CSS::before {
-      @extend .language ;
       background: $hubLangCSS;
     }
     &.HTML::before {
-      @extend .language ;
       background: $hubLangHTML;
     }
     &.Shell::before {
-      @extend .language;
       background: $hubLangShell;
     }
   }
+}
+
+footer {
+  background: $hubGray;
+  padding: 20px 0 30px;
+  ul {
+    padding: 0;
+  }
+  li {
+    list-style: none;
+    display: inline-block;
+  }
+  .help{
+    float: left;
+    li {
+      margin-right: 15px;
+    }
+  }
+  .services {
+    float: right;
+    li {
+      margin-left: 15px;
+    }
+  }
+}
+
+.footer-content {
+  text-align: center;
 }
