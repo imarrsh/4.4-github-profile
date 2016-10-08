@@ -53,7 +53,13 @@ function displayRepos(data){
 }
 
 function profileNavStats(data){
-
+	$.ajax(data.url + '/starred')
+		.then(function(starred){
+			$('.nav-repos span').text(data.public_repos);
+			$('.nav-stars span').text(starred.length);
+			$('.nav-followers span').text(data.followers);
+			$('.nav-following span').text(data.following);
+		});
 }
 
 function displayOrgs(data){

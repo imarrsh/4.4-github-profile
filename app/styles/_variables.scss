@@ -17,6 +17,7 @@ $hubGray:           #F5F5F5;
 $hubText:           #767676;
 $hubTextDark:       #333333;
 $hubBorder:         #767676;
+$hubBorderLight:    lighten($hubBorder, 35%);
 $hubButton:         #F6F6F6;
 $hubActionButton:   #5CA941;
 

@@ -16,24 +16,38 @@
       <div class="row">
         <div class="col-xs-12">
 
-          <span class="logo">
-            <a href="#" class="octicon octicon-mark-github"></a>
-          </span>
-          <div class="search">
-            <form action="#">
-              <input type="text" name="q" id="search-text" placeholder="Search GitHub">
-            </form>
+          <div class="header-nav cf">
+            <span class="logo">
+              <a href="#" class="octicon octicon-mark-github"></a>
+            </span>
+            <div class="search">
+              <form action="#">
+                <input type="text" name="q" id="search-text" placeholder="Search GitHub">
+              </form>
+            </div>
+            <ul class="actions-nav">
+              <li><a href="#">Pull requests</a></li>
+              <li><a href="#">Issues</a></li>
+              <li><a href="#">Gist</a></li>
+            </ul>
+            <ul class="account-nav">
+              <li>
+                <a href="#">
+                  <span class="octicon octicon-bell"></span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <span class="octicon octicon-plus more-dropdown"></span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <img src="" alt="" class="avatar"><i class='octicon more-dropdown'></i>
+                </a>
+              </li>
+            </ul>
           </div>
-          <ul class="actions-nav">
-            <li><a href="#">Pull requests</a></li>
-            <li><a href="#">Issues</a></li>
-            <li><a href="#">Gist</a></li>
-          </ul>
-          <ul class="account-nav">
-            <li><a href="#"><span class="octicon octicon-bell"></span></a></li>
-            <li><a href="#"><span class="octicon octicon-plus"></span></a></li>
-            <li><a href="#"><img src="" alt="" class="avatar"></a></li>
-          </ul>
 
         </div>
       </div>
@@ -91,10 +105,10 @@
             <nav class="profile-nav cf">
               <ul>
                 <li><a href="#">Overview</a></li>
-                <li class="nav-repos active"><a href="#">Repositories</a><span></span></li>
-                <li class="nav-stars"><a href="#">Stars</a><span></span></li>
-                <li class="nav-followers"><a href="#">Followers</a><span></span></li>
-                <li class="nav-following"><a href="#">Following</a><span></span></li>
+                <li class="nav-repos active"><a href="#">Repositories <span></span></a></li>
+                <li class="nav-stars"><a href="#">Stars <span></span></a></li>
+                <li class="nav-followers"><a href="#">Followers <span></span></a></li>
+                <li class="nav-following"><a href="#">Following <span></span></a></li>
               </ul>
             </nav>
           </div>
@@ -103,8 +117,8 @@
             <div class="filtering-options cf">
               <form id="repo-filter" class="repo-filter cf">
                 <input type="text" placeholder="Search repositories...">
-                <button class="btn">Type: <span>All</span></button>
-                <button class="btn">Language: <span>All</span></button>
+                <button class="btn">Type: <span>All <i class="octicon more-dropdown"></i></span></button>
+                <button class="btn">Language: <span>All <i class="octicon more-dropdown"></i></span></button>
                 <button class="btn btn-success"><i class="octicon octicon-repo"></i>New</button>
               </from>
             </div>
