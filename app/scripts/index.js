@@ -26,19 +26,13 @@ function displayAvatar(avatar){
 }
 
 function displayProfileInfo(data){
-  console.log(data);
+
   var profileSource = $('#user-info-template').html(),
       profileTemplate = Handlebars.compile(profileSource),
-      profileHTML = $(profileTemplate(data)),
-		  orgsURL = data.organizations_url;
+      profileHTML = $(profileTemplate(data));
+			// $orgTarget = $('js-user-orgs');
 
-  $('#user-profile').append(profileHTML);
-
-	$.ajax(orgsURL).then(function(orgs){
-		orgs.forEach(function(org){
-			
-		});
-	});
+  $('.user-profile-data').append(profileHTML);
 }
 
 function displayRepos(data){
@@ -56,6 +50,25 @@ function displayRepos(data){
     });
 
   });
+}
+
+function profileNavStats(data){
+
+}
+
+function displayOrgs(data){
+	var orgsURL = data.organizations_url,
+			orgsSource = $('#orgs-template').html(),
+			orgsTemplate = Handlebars.compile(orgsSource),
+			orgHTML;
+
+	$.ajax(orgsURL).then(function(orgs){
+		orgs.forEach(function(org){
+			console.log(org);
+			orgHTML = $(orgsTemplate(org));
+			$('#user-orgs').append(orgHTML);
+		});
+	});
 
 }
 
@@ -69,7 +82,11 @@ function init(data){
 
   displayProfileInfo(data);
 
-  displayRepos(data);
+	displayRepos(data);
+
+	displayOrgs(data);
+
+	profileNavStats(data);
 }
 
 // ajax request for profile data

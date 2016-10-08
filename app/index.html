@@ -52,24 +52,34 @@
             <div class="avatar-large">
               <img src="" alt="" class="avatar">
             </div>
-            <!-- template magic -->
-            <script id="user-info-template" type="text/x-handlebars-template">
-              <h2>{{name}}</h2>
-              <h4>{{login}}</h4>
-              <p>{{bio}}</p>
-              <button>Edit Profile</button>
-              <hr>
-              <ul class="networking-info">
-                <li class="location">{{location}}</li>
-                <li class="email"><a href="{{email}}">{{email}}</a></li>
-                <li class="website"><a href="">{{blog}}</a></li>
-                <li class="joined-date">{{created_at}}</li>
-              </ul>
-              <hr>
-              <h3>Organizations</h3>
-              <a href="#"><img src="" alt=""></a>
-            </script>
-            <!-- /template magic -->
+            <div class="user-profile-data">
+              <!-- template magic -->
+              <script id="user-info-template" type="text/x-handlebars-template">
+                <h2>{{name}}</h2>
+                <h4>{{login}}</h4>
+                <p>{{bio}}</p>
+                <button class="btn btn-grad">Edit Profile</button>
+                <hr>
+                <ul class="networking-info">
+                  <li class="location">{{location}}</li>
+                  <li class="email"><a href="{{email}}">{{email}}</a></li>
+                  <li class="website"><a href="">{{blog}}</a></li>
+                  <li class="joined-date">{{created_at}}</li>
+                </ul>
+              </script>
+              <!-- /template magic -->
+            </div>
+
+            <div id="user-orgs" class="user-orgs">
+              <!-- template magic -->
+              <script id="orgs-template" type="text/x-handlebars-template">
+                <hr>
+                <h3>Organizations</h3>
+                <a href="#"><img src="{{avatar_url}}" alt="{{description}}"></a>
+              </script>
+              <!-- / template magic -->
+            </div>
+
           </div>
 
 
@@ -77,8 +87,30 @@
 
         <!-- right col -->
         <div class="col-md-9">
-          <section id="user-repos" class="user-repos">
+          <div class="row">
+            <nav class="profile-nav cf">
+              <ul>
+                <li><a href="#">Overview</a></li>
+                <li class="nav-repos active"><a href="#">Repositories</a><span></span></li>
+                <li class="nav-stars"><a href="#">Stars</a><span></span></li>
+                <li class="nav-followers"><a href="#">Followers</a><span></span></li>
+                <li class="nav-following"><a href="#">Following</a><span></span></li>
+              </ul>
+            </nav>
+          </div>
 
+          <div class="row">
+            <div class="filtering-options cf">
+              <form id="repo-filter" class="repo-filter cf">
+                <input type="text" placeholder="Search repositories...">
+                <button class="btn">Type: <span>All</span></button>
+                <button class="btn">Language: <span>All</span></button>
+                <button class="btn btn-success"><i class="octicon octicon-repo"></i>New</button>
+              </from>
+            </div>
+          </div>
+
+          <section id="user-repos" class="user-repos">
             <!-- template for repos -->
             <script id="user-repo-template" type="text/x-handlebars-template">
 
@@ -105,7 +137,6 @@
 
             </script>
             <!-- /template for repos -->
-
           </section>
 
         </div>
@@ -120,28 +151,28 @@
     <div class="container">
       <div class="row">
 
-        <div class="footer-content">
+        <div class="footer-content cf">
           <nav class="help">
             <ul>
               <li>&copy; <span class="copyright">2016</span> GitHub, Inc.</li>
-              <li>Terms</li>
-              <li>Privacy</li>
-              <li>Security</li>
-              <li>Status</li>
-              <li>Help</li>
+              <li><a href="https://github.com/site/terms">Terms</a></li>
+              <li><a href="https://github.com/site/privacy">Privacy</a></li>
+              <li><a href="https://github.com/security">Security</a></li>
+              <li><a href="https://status.github.com/">Status</a></li>
+              <li><a href="https://help.github.com/">Help</a></li>
             </ul>
           </nav>
 
-          <span class="octicon octicon-mark-github"></span>
+          <span class="gh-mark octicon octicon-mark-github"></span>
 
           <nav class="services">
             <ul>
-              <li>Contact GitHub</li>
-              <li>API</li>
-              <li>Training</li>
-              <li>Shop</li>
-              <li>Blog</li>
-              <li>About</li>
+              <li><a href="#">Contact GitHub</a></li>
+              <li><a href="#">API</a></li>
+              <li><a href="#">Training</a></li>
+              <li><a href="#">Shop</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">About</a></li>
             </ul>
           </nav>
         </div>
