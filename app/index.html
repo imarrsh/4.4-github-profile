@@ -114,13 +114,23 @@
           </div>
 
           <div class="row">
-            <div class="filtering-options cf">
-              <form id="repo-filter" class="repo-filter cf">
-                <input type="text" placeholder="Search repositories...">
-                <button class="btn">Type: <span>All <i class="octicon more-dropdown"></i></span></button>
-                <button class="btn">Language: <span>All <i class="octicon more-dropdown"></i></span></button>
-                <button class="btn btn-success"><i class="octicon octicon-repo"></i>New</button>
-              </from>
+            <div class="profile-repo-search cf">
+              <!-- repo search form -->
+              <div class="repo-search-input">
+                <form id="repo-search" class="repo-search cf">
+
+                  <div class="repo-search-field">
+                    <input type="text" placeholder="Search repositories...">
+                  </div>
+
+                </from>
+              </div>
+              <!-- repo filtering options -->
+              <div class="repo-filter-buttons">
+                <button class="btn btn-grad">Type: <span>All <i class="octicon more-dropdown"></i></span></button>
+                <button class="btn btn-grad">Language: <span>All <i class="octicon more-dropdown"></i></span></button>
+                <button class="btn btn-success new-repo"><i class="octicon octicon-repo"></i>New</button>
+              </div>
             </div>
           </div>
 
