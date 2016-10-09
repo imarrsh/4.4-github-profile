@@ -101,3 +101,14 @@ $.ajax('https://api.github.com/users/imarrsh')
     // call init function
     init(data);
   });
+
+
+
+// jQuery event handlers
+$('.repo-filter-buttons button').on('click', function(e){
+	e.preventDefault();
+	$(this).next().toggleClass('hidden');
+	// console.log($(this));
+	// $this.find('.drop-list').toggleClass('hidden');
+
+});

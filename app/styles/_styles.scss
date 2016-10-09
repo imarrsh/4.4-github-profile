@@ -27,7 +27,7 @@ input[type="text"]{
   }
 }
 
-
+// repo page styles
 .header {
   .header-nav{
     margin-top: 10px;
@@ -156,8 +156,20 @@ input[type="text"]{
     width: 100%;
     white-space: nowrap; // <- magic!
   }
-  .repo-search-input {
+  .repo-filter-buttons {
+    position: relative;
+    & > div {
+      position: relative;
+      display: inline;
+      overflow: visible;
+      & .drop-list {
+        width: 250px;
+      }
+    }
   }
+  // .repo-type-filter {
+  //   position: relative;
+  // }
   form {
     width: 100%;
     padding-right: 20px;
@@ -169,7 +181,7 @@ input[type="text"]{
     span{
       font-weight: bold;
     }
-    &.new-repo {
+    &.btn-new-repo {
       margin-left: 12px;
     }
   }
@@ -248,7 +260,13 @@ footer {
 // custom buttons
 .btn-grad {
   border-color: $hubBorderLight;
-  background-image: linear-gradient(180deg, $hubGray, lighten($hubText, 20%));
+  background-image: linear-gradient(180deg, $hubGray, lighten($hubText, 40%));
+}
+
+.btn-new-repo {
+  color: #ffffff;
+  border-color: $hubActionButton;
+  background-image: linear-gradient(180deg, lighten($hubActionButton, 20%), lighten($hubActionButton, 5%));
 }
 
 
@@ -261,10 +279,48 @@ footer {
   }
 }
 
+.hidden {
+  display: none;
+}
+
 .more-dropdown {
   &:after{
     font-size: 12px;
     content: '\f05b';
     display: inline;
+  }
+}
+
+// drop down menus
+.drop-list{
+  position: absolute;
+  top: 35px;
+  right: 5px;
+  z-index: 20;
+  color: $hubTextDark;
+  border-radius: 5px;
+  & > div{
+    border: 1px solid lighten($hubBorder, 30%);
+    & > div{
+      padding: 10px;
+      display: block;
+      background-color: $hubGray;
+      border-bottom: 1px solid lighten($hubBorder, 30%);
+    }
+  }
+  a {
+    color: $hubTextDark;
+    display: block;
+    background-color: #ffffff;
+    padding: 10px 20px;
+    border-bottom: 1px solid lighten($hubBorder, 30%);
+    &:last-child {
+      border-bottom: none;
+    }
+    &:hover {
+      background-color: $hubLinks;
+      text-decoration: none;
+      color: white;
+    }
   }
 }
