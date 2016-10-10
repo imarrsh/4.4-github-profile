@@ -1,0 +1,248 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+    <title>Github Profile</title>
+    <link rel="stylesheet" href="css/app.css">
+  </head>
+  <body>
+
+  <div class="wrapper">
+
+  <header class="header" id="header">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+
+          <div class="header-nav cf">
+            <span class="logo">
+              <a href="#" class="octicon octicon-mark-github"></a>
+            </span>
+            <div class="search">
+              <form action="#">
+                <input type="text" name="q" id="search-text" placeholder="Search GitHub">
+              </form>
+            </div>
+            <ul class="actions-nav">
+              <li><a href="#">Pull requests</a></li>
+              <li><a href="#">Issues</a></li>
+              <li><a href="#">Gist</a></li>
+            </ul>
+            <ul class="account-nav">
+              <li>
+                <a href="#">
+                  <span class="octicon octicon-bell"></span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <span class="octicon octicon-plus more-dropdown"></span>
+                </a>
+                <div class="drop-list drop-list-acc-nav hidden">
+                  <a href="#" id="">New repository</a>
+                  <a href="#" id="">Import repository</a>
+                  <a href="#" id="">New Organization</a>
+                </div>
+              </li>
+              <li>
+                <a href="#">
+                  <img src="" alt="" class="avatar"><i class='octicon more-dropdown'></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </header>
+
+  <section id="main-content" class="main-content">
+
+    <div class="container">
+      <div class="row">
+        <!-- left col -->
+        <div class="col-md-3">
+
+          <div id="user-profile" class="user-profile">
+            <div class="avatar-large">
+              <img src="" alt="" class="avatar">
+            </div>
+            <div class="user-profile-data">
+              <!-- template magic -->
+              <script id="user-info-template" type="text/x-handlebars-template">
+                <h2>{{name}}</h2>
+                <h3>{{login}}</h3>
+                <p>{{bio}}</p>
+                <button class="btn btn-grad">Edit Profile</button>
+                <hr>
+                <ul class="networking-info">
+                  <li class="location"><i class="octicon octicon-location"></i> {{location}}</li>
+                  <li class="email"><i class="octicon octicon-mail"></i> <a href="{{email}}">{{email}}</a></li>
+                  <li class="website"><i class="octicon octicon-link"></i> <a href="">{{blog}}</a></li>
+                  <li class="joined-date">{{created_at}}</li>
+                </ul>
+              </script>
+              <!-- /template magic -->
+            </div>
+
+            <div id="user-orgs" class="user-orgs">
+              <!-- template magic -->
+              <script id="orgs-template" type="text/x-handlebars-template">
+                <hr>
+                <h3>Organizations</h3>
+                <a href="#"><img src="{{avatar_url}}" alt="{{description}}"></a>
+              </script>
+              <!-- / template magic -->
+            </div>
+
+          </div>
+
+
+        </div>
+
+        <!-- right col -->
+        <div class="col-md-9">
+          <div class="row">
+            <nav class="profile-nav cf">
+              <ul>
+                <li><a href="#">Overview</a></li>
+                <li class="nav-repos active"><a href="#">Repositories <span></span></a></li>
+                <li class="nav-stars"><a href="#">Stars <span></span></a></li>
+                <li class="nav-followers"><a href="#">Followers <span></span></a></li>
+                <li class="nav-following"><a href="#">Following <span></span></a></li>
+              </ul>
+            </nav>
+          </div>
+
+          <div class="row">
+            <div class="profile-repo-search cf">
+              <!-- repo search form -->
+              <div class="repo-search-input">
+                <form id="repo-search" class="repo-search cf">
+
+                  <div class="repo-search-field">
+                    <input type="text" placeholder="Search repositories...">
+                  </div>
+
+                </from>
+              </div>
+              <!-- repo filtering options -->
+              <div class="repo-filter-buttons">
+
+                <div class="repo-type-filter js-menu-parent">
+                  <button class="btn btn-grad">Type: <span>All</span> <i class="octicon more-dropdown"></i></button>
+                  <div class="drop-list hidden">
+                    <div class="repo-type-options">
+                      <div>Select type: <span></span></div>
+                      <a href="">All</a>
+                      <a href="">Public</a>
+                      <a href="">Private</a>
+                      <a href="">Sources</a>
+                      <a href="">Forks</a>
+                      <a href="">Mirrors</a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="repo-lang-filter js-menu-parent">
+                  <button class="btn btn-grad">Language: <span>All</span> <i class="octicon more-dropdown"></i></button>
+                  <div class="drop-list hidden">
+                    <div id="repo-lang-options" class="repo-lang-options">
+                      <div>Select language: <span></span></div>
+                      <a href="">All</a>
+
+                      <script id="repo-filter-list-item" type="text/x-handlebars-template">
+                        <a href="">{{language}}</a>
+                      </script>
+
+                    </div>
+                  </div>
+                </div>
+
+                <button class="btn btn-new-repo"><i class="octicon octicon-repo"></i>New</button>
+              </div>
+            </div>
+          </div>
+
+          <section id="user-repos" class="user-repos">
+            <!-- template for repos -->
+            <script id="user-repo-template" type="text/x-handlebars-template">
+
+              <div class="row">
+
+                <div class="row-content" id="repo-{{id}}">
+                  <div class="col-md-6">
+                    <h4>
+                      <a href="{{url}}">{{name}}</a>
+                    </h4>
+                    <span>{{description}}</span>
+                  </div>
+                  <div class="col-md-3">
+                    <span>–</span>
+                  </div>
+                  <div class="col-md-2">
+                    <span class="language {{language}}">{{language}}</span>
+                  </div>
+                  <div class="col-md-1">
+                    <span class="octicon octicon-star"></span>{{stargazers_count}}
+                  </div>
+                </div>
+              </div>
+
+            </script>
+            <!-- /template for repos -->
+          </section>
+
+        </div>
+
+      </div> <!-- /row-->
+    </div> <!-- /container -->
+
+  </section> <!-- /main-content -->
+
+  <footer>
+
+    <div class="container">
+      <div class="row">
+
+        <div class="footer-content cf">
+          <nav class="help">
+            <ul>
+              <li>&copy; <span class="copyright">2016</span> GitHub, Inc.</li>
+              <li><a href="https://github.com/site/terms">Terms</a></li>
+              <li><a href="https://github.com/site/privacy">Privacy</a></li>
+              <li><a href="https://github.com/security">Security</a></li>
+              <li><a href="https://status.github.com/">Status</a></li>
+              <li><a href="https://help.github.com/">Help</a></li>
+            </ul>
+          </nav>
+
+          <span class="gh-mark octicon octicon-mark-github"></span>
+
+          <nav class="services">
+            <ul>
+              <li><a href="#">Contact GitHub</a></li>
+              <li><a href="#">API</a></li>
+              <li><a href="#">Training</a></li>
+              <li><a href="#">Shop</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">About</a></li>
+            </ul>
+          </nav>
+        </div>
+
+      </div>
+    </div>
+
+  </footer>
+
+
+  </div>
+
+    <script src="js/bundle.js"></script>
+  </body>
+</html>
