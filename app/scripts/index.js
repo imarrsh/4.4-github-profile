@@ -8,13 +8,13 @@ var octicons = require('octicons');
 // var rootURL = 'https://api.github.com/';
 
 // set header for api request
-if(apiKey !== undefined){
-	$.ajaxSetup({
-		headers: {
-			'Authorization' : 'token ' + apiKey.token
-		}
-	});
-}
+// if(apiKey !== undefined){
+// 	$.ajaxSetup({
+// 		headers: {
+// 			'Authorization' : 'token ' + apiKey.token
+// 		}
+// 	});
+// }
 
 // display
 function displayAvatar(avatar){
