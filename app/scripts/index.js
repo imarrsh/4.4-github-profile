@@ -2,7 +2,7 @@ var $ = require('jquery');
 var _ = require('underscore');
 var Handlebars = require('handlebars');
 var moment = require('moment');
-var apiKey = require('./githubapikey');
+// var apiKey = require('./githubapikey');
 var octicons = require('octicons');
 
 // var rootURL = 'https://api.github.com/';
