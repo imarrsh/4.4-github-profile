@@ -40,6 +40,11 @@
                 <a href="#">
                   <span class="octicon octicon-plus more-dropdown"></span>
                 </a>
+                <div class="drop-list drop-list-acc-nav hidden">
+                  <a href="#" id="">New repository</a>
+                  <a href="#" id="">Import repository</a>
+                  <a href="#" id="">New Organization</a>
+                </div>
               </li>
               <li>
                 <a href="#">
@@ -70,14 +75,14 @@
               <!-- template magic -->
               <script id="user-info-template" type="text/x-handlebars-template">
                 <h2>{{name}}</h2>
-                <h4>{{login}}</h4>
+                <h3>{{login}}</h3>
                 <p>{{bio}}</p>
                 <button class="btn btn-grad">Edit Profile</button>
                 <hr>
                 <ul class="networking-info">
-                  <li class="location">{{location}}</li>
-                  <li class="email"><a href="{{email}}">{{email}}</a></li>
-                  <li class="website"><a href="">{{blog}}</a></li>
+                  <li class="location"><i class="octicon octicon-location"></i> {{location}}</li>
+                  <li class="email"><i class="octicon octicon-mail"></i> <a href="{{email}}">{{email}}</a></li>
+                  <li class="website"><i class="octicon octicon-link"></i> <a href="">{{blog}}</a></li>
                   <li class="joined-date">{{created_at}}</li>
                 </ul>
               </script>
@@ -128,7 +133,7 @@
               <!-- repo filtering options -->
               <div class="repo-filter-buttons">
 
-                <div class="repo-type-filter">
+                <div class="repo-type-filter js-menu-parent">
                   <button class="btn btn-grad">Type: <span>All</span> <i class="octicon more-dropdown"></i></button>
                   <div class="drop-list hidden">
                     <div class="repo-type-options">
@@ -143,17 +148,17 @@
                   </div>
                 </div>
 
-                <div class="repo-lang-filter">
+                <div class="repo-lang-filter js-menu-parent">
                   <button class="btn btn-grad">Language: <span>All</span> <i class="octicon more-dropdown"></i></button>
                   <div class="drop-list hidden">
-                    <div class="repo-lang-options">
-                      <div>Select type: <span></span></div>
+                    <div id="repo-lang-options" class="repo-lang-options">
+                      <div>Select language: <span></span></div>
                       <a href="">All</a>
-                      <a href="">Public</a>
-                      <a href="">Private</a>
-                      <a href="">Sources</a>
-                      <a href="">Forks</a>
-                      <a href="">Mirrors</a>
+
+                      <script id="repo-filter-list-item" type="text/x-handlebars-template">
+                        <a href="">{{language}}</a>
+                      </script>
+
                     </div>
                   </div>
                 </div>

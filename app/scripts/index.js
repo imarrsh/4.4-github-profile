@@ -1,6 +1,7 @@
 var $ = require('jquery');
 var _ = require('underscore');
 var Handlebars = require('handlebars');
+var moment = require('moment');
 var apiKey = require('./githubapikey');
 var octicons = require('octicons');
 
@@ -26,6 +27,8 @@ function displayAvatar(avatar){
 }
 
 function displayProfileInfo(data){
+	// update the created_at prop with formatted value
+	data.created_at = 'Joined on ' + moment(data.created_at).format('MMMM Do YYYY');
 
   var profileSource = $('#user-info-template').html(),
       profileTemplate = Handlebars.compile(profileSource),
@@ -40,14 +43,36 @@ function displayRepos(data){
   var reposURL = data.repos_url,
       repoSource = $('#user-repo-template').html(),
       repoTemplate = Handlebars.compile(repoSource),
-      repoHTML;
+			repoHTML,
+			// set template for repo filer list
+			$repoFilterMenu = $('#repo-lang-options'),
+			repoFilterSrc = $("#repo-filter-list-item").html(),
+			repoFilterTemplate = Handlebars.compile(repoFilterSrc),
+			repoFilterListHTML;
 
   $.ajax(reposURL).then(function(repos){
-    // loop through all repos, print each one to a template
+
+		var repoLangs = [],
+				uniqueLangs;
+		// loop through all repos, print each one to a template
     repos.forEach(function(repo){
       repoHTML = $(repoTemplate(repo));
       $('#user-repos').append(repoHTML);
+
+			// push each repo langauge to an
+			// array so we can do work on them
+			var lang = repo.language;
+			if(lang !== null){
+				repoLangs.push(lang);
+			}
+
     });
+
+		uniqueLangs = _.flatten(_.union(repoLangs));
+		uniqueLangs.forEach(function(uniqueLang){
+			repoFilterListHTML = $(repoFilterTemplate(uniqueLang));
+			$repoFilterMenu.append(repoFilterListHTML.text(uniqueLang));
+		});
 
   });
 }
@@ -105,10 +130,32 @@ $.ajax('https://api.github.com/users/imarrsh')
 
 
 // jQuery event handlers
+
+$('.drop-list').prev().on('click', function(e){
+	e.preventDefault();
+
+	// was attempting to make a more generic drop-down handler
+	// to no avail
+
+});
+
+
 $('.repo-filter-buttons button').on('click', function(e){
 	e.preventDefault();
-	$(this).next().toggleClass('hidden');
-	// console.log($(this));
-	// $this.find('.drop-list').toggleClass('hidden');
+	var $this = $(this);
+	var $menu = $this.next();
+	console.log($menu);
+
+	$menu.toggleClass('hidden');
+
+	$('body').on('click', function(e){
+		var $target = $(e.target);
+		// console.log($target);
+		if($target.parents('.js-menu-parent').length === 0) {
+			$menu.addClass('hidden');
+			//detach event handler
+			$(this).unbind(e);
+		}
+	});
 
 });

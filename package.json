@@ -66,6 +66,7 @@
     ]
   },
   "dependencies": {
+    "moment": "^2.15.1",
     "octicons": "^4.4.0"
   }
 }

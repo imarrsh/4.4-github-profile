@@ -29,10 +29,7 @@ input[type="text"]{
 
 // repo page styles
 .header {
-  .header-nav{
-    margin-top: 10px;
-  }
-  padding: 10px 0;
+  padding: 15px 0 10px;
   background: $hubGray;
   border-bottom: 1px solid $hubBorderLight;
   .logo {
@@ -55,7 +52,7 @@ input[type="text"]{
   }
   ul{
     float: left;
-    margin-left: 20px;
+    margin: 0 0 0 20px;
     padding: 0;
   }
   li{
@@ -76,8 +73,47 @@ input[type="text"]{
   }
   .account-nav {
     float: right;
+    li {
+      position: relative;
+    }
+    .drop-list {
+      width: 200px;
+      background-color: #ffffff;
+      padding: 6px 0;
+      box-shadow: 2px 2px 2px rgba(0,0,0, 0.2);
+      border: 1px solid lighten($hubBorder, 40%);
+      // overflow: hidden;
+      a {
+        padding: 8px 10px;
+        border: none;
+      }
+      &:before{
+        content: '';
+        display: inline-block;
+        position: absolute;
+        width: 0;
+        height: 0;
+        border: 9px solid transparent;
+        border-bottom-color: #ffffff;
+        top: -18px;
+        right: 11px;
+        z-index: 10;
+      }
+      &:after {
+        content: '';
+        display: inline-block;
+        position: absolute;
+        width: 0;
+        height: 0;
+        border: 10px solid transparent;
+        border-bottom-color: lighten($hubBorder, 40%);
+        top: -20px;
+        right: 10px;
+      }
+    }
     .avatar {
       width: 22px;
+      margin-right: 5px;
     }
   }
 }
@@ -88,10 +124,18 @@ input[type="text"]{
 
 .user-profile {
   .avatar {
-    border-radius: 10px;
+    border-radius: 8px;
   }
-  h4 {
+  h2 {
+    margin: 20px 0 0;
+  }
+  h3 {
     font-weight: normal;
+    color: $hubText;
+    margin: 5px 0 10px;
+  }
+  p{
+    color: $hubTextDark;
   }
   button {
     width: 100%;
@@ -100,6 +144,7 @@ input[type="text"]{
     padding: 0;
     li {
       list-style: none;
+      padding-bottom: 10px;
     }
   }
   .user-orgs {
@@ -166,10 +211,10 @@ input[type="text"]{
         width: 250px;
       }
     }
+    & button:focus {
+      outline: none;
+    }
   }
-  // .repo-type-filter {
-  //   position: relative;
-  // }
   form {
     width: 100%;
     padding-right: 20px;
@@ -267,6 +312,9 @@ footer {
   color: #ffffff;
   border-color: $hubActionButton;
   background-image: linear-gradient(180deg, lighten($hubActionButton, 20%), lighten($hubActionButton, 5%));
+  &:hover {
+    color: #ffffff;
+  }
 }
 
 
@@ -299,8 +347,11 @@ footer {
   z-index: 20;
   color: $hubTextDark;
   border-radius: 5px;
+  // overflow: hidden;
   & > div{
     border: 1px solid lighten($hubBorder, 30%);
+    border-radius: 5px;
+    overflow: hidden;
     & > div{
       padding: 10px;
       display: block;
