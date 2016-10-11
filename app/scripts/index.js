@@ -2,19 +2,19 @@ var $ = require('jquery');
 var _ = require('underscore');
 var Handlebars = require('handlebars');
 var moment = require('moment');
-// var apiKey = require('./githubapikey');
+var apiKey = require('./githubapikey').token;
 var octicons = require('octicons');
 
 // var rootURL = 'https://api.github.com/';
 
 // set header for api request
-// if(apiKey !== undefined){
-// 	$.ajaxSetup({
-// 		headers: {
-// 			'Authorization' : 'token ' + apiKey.token
-// 		}
-// 	});
-// }
+if(apiKey !== undefined){
+	$.ajaxSetup({
+		headers: {
+			'Authorization' : 'token ' + apiKey
+		}
+	});
+}
 
 // display
 function displayAvatar(avatar){
@@ -158,4 +158,27 @@ $('.repo-filter-buttons button').on('click', function(e){
 		}
 	});
 
+});
+
+$('#repo-search-term').on('keyup', function(e){
+  // console.log('key pressed:', e.key);
+  var term = $(this).val();
+  console.log(term);
+
+  var $repoLinks = $(".js-repo-info");
+	$repoLinks.each(function(i, repoLink){
+
+		if($(this).context.innerText.toLowerCase().indexOf(term) === -1) {
+			$(this).hide();
+		} else {
+			$(this).show();
+		}
+		// var href = $(this).find('a');
+
+
+		// console.log(i, repoLink, href);
+		// if(repoLink.children('a:contains(' + term + ')')) {
+		// 	$repoLink.hide();
+		// }
+	});
 });

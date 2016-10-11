@@ -125,7 +125,7 @@
                 <form id="repo-search" class="repo-search cf">
 
                   <div class="repo-search-field">
-                    <input type="text" placeholder="Search repositories...">
+                    <input id="repo-search-term" type="text" placeholder="Search repositories...">
                   </div>
 
                 </from>
@@ -172,7 +172,7 @@
             <!-- template for repos -->
             <script id="user-repo-template" type="text/x-handlebars-template">
 
-              <div class="row">
+              <div class="row js-repo-info">
 
                 <div class="row-content" id="repo-{{id}}">
                   <div class="col-md-6">
