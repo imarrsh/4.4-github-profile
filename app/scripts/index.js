@@ -2,19 +2,19 @@ var $ = require('jquery');
 var _ = require('underscore');
 var Handlebars = require('handlebars');
 var moment = require('moment');
-var apiKey = require('./githubapikey').token;
+// var apiKey = require('./githubapikey').token;
 var octicons = require('octicons');
 
 // var rootURL = 'https://api.github.com/';
 
 // set header for api request
-if(apiKey !== undefined){
-	$.ajaxSetup({
-		headers: {
-			'Authorization' : 'token ' + apiKey
-		}
-	});
-}
+// if(apiKey !== undefined){
+// 	$.ajaxSetup({
+// 		headers: {
+// 			'Authorization' : 'token ' + apiKey
+// 		}
+// 	});
+// }
 
 // display
 function displayAvatar(avatar){
