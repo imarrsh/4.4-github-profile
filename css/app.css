@@ -1522,7 +1522,7 @@ pre {
       width: 970px; } }
   @media (min-width: 1200px) {
     .container {
-      width: 1170px; } }
+      width: 1014px; } }
 
 .container-fluid {
   margin-right: auto;
@@ -6411,6 +6411,9 @@ input[type="text"] {
 .user-profile ul {
   padding: 0; }
   .user-profile ul li {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     list-style: none;
     padding-bottom: 10px; }
 .user-profile .user-orgs img {
@@ -6576,5 +6579,13 @@ footer {
       background-color: #4078C0;
       text-decoration: none;
       color: white; }
+
+.js-menu-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vw;
+  z-index: 10; }
 
 /*# sourceMappingURL=app.css.map */
