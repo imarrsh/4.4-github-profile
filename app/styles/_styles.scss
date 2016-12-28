@@ -143,6 +143,9 @@ input[type="text"]{
   ul {
     padding: 0;
     li {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
       list-style: none;
       padding-bottom: 10px;
     }
@@ -374,4 +377,13 @@ footer {
       color: white;
     }
   }
+}
+
+.js-menu-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vw;
+  z-index: 10;
 }

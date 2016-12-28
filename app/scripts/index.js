@@ -140,26 +140,25 @@ $('.drop-list').prev().on('click', function(e){
 });
 
 
-$('.repo-filter-buttons button').on('click', function(e){
+$('.js-menu-trigger').on('click', function(e){
 	e.preventDefault();
 	var $this = $(this);
 	var $menu = $this.next();
 	console.log($menu);
 
-	$menu.toggleClass('hidden');
+	// toggle hidden class
+	$menu.removeClass('hidden');
+	$('.wrapper').addClass('js-menu-backdrop');
 
-	$('body').on('click', function(e){
-		var $target = $(e.target);
-		// console.log($target);
-		if($target.parents('.js-menu-parent').length === 0) {
+	$('.js-menu-backdrop').on('click', function(e){
 			$menu.addClass('hidden');
-			//detach event handler
-			$(this).unbind(e);
-		}
+			$('.wrapper').addClass('js-menu-backdrop');
+			// $(this).unbind(e);
 	});
 
 });
 
+// has basic matching functionality
 $('#repo-search-term').on('keyup', function(e){
   // console.log('key pressed:', e.key);
   var term = $(this).val();
@@ -173,12 +172,6 @@ $('#repo-search-term').on('keyup', function(e){
 		} else {
 			$(this).show();
 		}
-		// var href = $(this).find('a');
 
-
-		// console.log(i, repoLink, href);
-		// if(repoLink.children('a:contains(' + term + ')')) {
-		// 	$repoLink.hide();
-		// }
 	});
 });

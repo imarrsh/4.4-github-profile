@@ -1,11 +1,12 @@
 // ##################
 // Bootstrap stuff
 // ##################
+$grid-gutter-width: 30px;
+$container-large-desktop:  (984px + $grid-gutter-width) !default;
 
 // icon fonts
 $icon-font-path: '../../node_modules/bootstrap-sass/assets/fonts/bootstrap/';
 $octicons-font-path: "../fonts/" !default;
-
 // ##################
 // COLORS
 // ##################
